@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}}
+    Titeltje
+
+{% endblock %}
+
+{% block body %}
+
+
+{{countje * 2}}
+
+{% if countje < 999 %}
+
+<h3> countje is {{countje}} <h3>
+
+{% endif %}
+
+
+<div>
+    <table>
+
+        <tr>
+            <th>{{obj.name}}</th>
+            <td>{{obj.class}}</td>
+        </tr>
+    </table>
+
+</div>
+
+{% endblock %}
