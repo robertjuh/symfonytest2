@@ -22,8 +22,16 @@
     <table>
 
         <tr>
-            <th>{{obj.name}}</th>
-            <td>{{obj.class}}</td>
+
+            <a href="{{path('app_datapoint_show', {id : randomObj.x })}}">
+                 X : {{randomObj.x}}
+            </a>
+
+
+            <td>{{randomObj.y}}</td>
+
+
+
         </tr>
     </table>
 
