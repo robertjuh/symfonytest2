@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\DataPointModel;
+use App\Model\DataPointTypeEnum;
 use Psr\Log\LoggerInterface;
 use Symfony\Flex\Response;
 
@@ -18,11 +19,11 @@ class DataPointRepository {
 
         return [
 
-            new DataPointModel(1,2,3),
-            new DataPointModel(4,0,8),
-            new DataPointModel(7,1,3),
-            new DataPointModel(2,2,0),
-            new DataPointModel(7,2,1),
+            new DataPointModel(1,2,3, DataPointTypeEnum::PRICEPOINT),
+            new DataPointModel(4,0,8, DataPointTypeEnum::NUMBER),
+            new DataPointModel(7,1,3, DataPointTypeEnum::PRICEPOINT),
+            new DataPointModel(2,2,0, DataPointTypeEnum::PRICEPOINT),
+            new DataPointModel(7,2,1, DataPointTypeEnum::AISCORE),
 
 
 

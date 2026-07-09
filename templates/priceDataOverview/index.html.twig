@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section
+        data-controller="metals-price"
+        data-metals-price-url-value="{{ path('app_gold_refresh_json') }}"
+        data-metals-price-token-value="{{ csrf_token('refresh_gold_price') }}"
+    >
+        <h1 class="text-2xl m-2 ">Gold price</h1>
+        <div
+            class="flex flex-col items-center p-7 rounded-2xl text-stone-600 bg-mist-300 max-w-70 m-2"
+            
+        >
+            <p>
+                <span data-metals-price-target="pair">
+                    Pair: {{ snapshot.metal }}/{{ snapshot.currency }}
+                </span>
+            </p>
+
+            <p >
+                <span data-metals-price-target="price">
+                    Price: {{ snapshot.price ?? 'Unknown' }}
+                </span>                
+            </p>
+
+            <p>
+
+                <span data-metals-price-target="storedAt">
+                    Stored at: {{ snapshot.createdAt|date('Y-m-d H:i:s') }}
+                </span>   
+            </p>
+        </div>
+
+        {# <form method="post" action="{{ path('app_gold_refresh_json') }}" class="m-2">
+            <input type="hidden" name="_token" value="{{ csrf_token('refresh_gold_price') }}"> #}
+
+            <button
+                type="submit"
+                class="rounded-xl text-stone-200 bg-stone-500 px-4 py-2 font-semibold text-white shadow hover:bg-stone-700 active:bg-yellow-700"
+                data-action="metals-price#refresh"            
+                data-metals-price-target="button"
+            >
+                Refresh gold price
+            </button>
+        {# </form> #}
+
+
+        {# <h2>Raw API response</h2>
+
+        <pre>{{ snapshot.payload|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre> #}
+
+    </section>
+    
+
+{% endblock %}

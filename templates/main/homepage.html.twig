@@ -13,9 +13,16 @@
 
 {% if countje < 999 %}
 
-<h3> countje is {{countje}} <h3>
+<h1 class="text-2xl"> countje is {{countje}} <h1>
 
 {% endif %}
+
+
+<main class="flex flex-col lg:flex-row">
+    {{include('main/_aside.html.twig')}}
+
+
+</main>
 
 
 <div>
